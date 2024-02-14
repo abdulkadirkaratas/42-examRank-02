@@ -10,19 +10,14 @@ int main(int argc, char **argv)
 		{
 			write(1, &argv[1][i], 1);
 
-			if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+			if ((argv[1][i] >= 'A' && argv[1][i] <= 'Z') || (argv[1][i] >= 'a' && argv[1][i] <= 'z'))
 			{
-				repeat = argv[1][i] - 'A';
-				while (repeat > 0)
-				{
-					write(1, &argv[1][i], 1);
-					repeat--;
-				}
-			}
+				if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+					repeat = argv[1][i] - 'A';
 
-			if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
-			{
-				repeat = argv[1][i] - 'a';
+				if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+					repeat = argv[1][i] - 'a';
+
 				while (repeat > 0)
 				{
 					write(1, &argv[1][i], 1);
